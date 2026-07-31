@@ -35,7 +35,8 @@ public class PlateServerMod(
         var ammoCount = tables.Templates?.Items?.Values
             .Count(i => i.Properties?.Caliber is not null) ?? 0;
 
-        logger.Success($"[PLATE] Server 0.1.0 loaded. DB: {ammoCount} ammo templates visible " +
+        var version = new PlateModMetadata().Version;
+        logger.Success($"[PLATE] Server {version} loaded. DB: {ammoCount} ammo templates visible " +
                        $"(modules: ammoNorm={config.Modules.AmmoNormalizer}, " +
                        $"bloodGlobals={config.Modules.BloodGlobals}, gost={config.Modules.GostArmor})");
 
